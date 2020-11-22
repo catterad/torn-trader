@@ -1,13 +1,17 @@
 #!/usr/bin/python3
 
-import requests
 import argparse
 import os.path
 from ast import literal_eval
 
+import requests
+
 api_key = "qPOHTchsOjtNSYDD"
 
-wantedlist = {"Cannabis":7000, "Trout":17000, "Wolverine Plushie":9500, "Hockey Stick":4000, "Heather":40000, "Stingray Plushie":9000}
+wantedlist = {"Cannabis":7000, "Trout":17000, "Hockey Stick":4000, "Bottle of Beer":900, "Lollipop":400}
+plushielist = {"Wolverine Plushie":9500, "Stingray Plushie":9000, "Jaguar Plushie":17000, "Nessie Plushie":39000, "Camel Plushie":86000, "Lion Plushie":66000}
+flowerlist = {"Heather":40000,  "Banana Orchid":11000, "Orchid":19400, "Tribulus Omanense":74000, "Peony":71000}
+
 
 # api_key = os.environ['TORN']
 
@@ -108,17 +112,32 @@ def market_api_call(item):
 
 parser = argparse.ArgumentParser(description="Torn-trader v1 by Catterad")
 parser.add_argument("--name", help="Name of the item")
+parser.add_argument("--silent", help="Only print possible buys", action='store_true', default='False')
 
 args = parser.parse_args()
 
 data = itemload()
 for item in wantedlist:
-    print(item)
+    if not args.silent:
+        print(item)
     prices_list = getprices(find_id(data, item))
     for price in prices_list:
         if(int(price) <= wantedlist[item]):
             print("Buy " + str(item) + " " + str(price))
-
+for item in plushielist:
+    if not args.silent:
+        print(item)
+    prices_list = getprices(find_id(data, item))
+    for price in prices_list:
+        if(int(price) <= plushielist[item]):
+            print("Buy " + str(item) + " " + str(price))
+for item in flowerlist:
+    if not args.silent:
+        print(item)
+    prices_list = getprices(find_id(data, item))
+    for price in prices_list:
+        if(int(price) <= flowerlist[item]):
+            print("Buy " + str(item) + " " + str(price))
 
 if args.name:
     try:
@@ -129,3 +148,5 @@ if args.name:
         sort_and_present(prices_list)
     throw_an_error(21)
 
+if args.silent:
+    print("Shhhh")
