@@ -8,9 +8,9 @@ import requests
 
 api_key = "qPOHTchsOjtNSYDD"
 
-wantedlist = {"Cannabis":7000, "Trout":17000, "Hockey Stick":4000, "Bottle of Beer":900, "Lollipop":400}
+wantedlist = {"Cannabis":7000, "Trout":17000, "Hockey Stick":3900, "Bottle of Beer":900, "Lollipop":400}
 plushielist = {"Wolverine Plushie":9500, "Stingray Plushie":9000, "Jaguar Plushie":17000, "Nessie Plushie":39000, "Camel Plushie":86000, "Lion Plushie":66000}
-flowerlist = {"Heather":40000,  "Banana Orchid":11000, "Orchid":19400, "Tribulus Omanense":74000, "Peony":71000}
+flowerlist = {"Heather":40000,  "Banana Orchid":11000, "Orchid":19400, "Tribulus Omanense":74000, "Peony":69000}
 
 
 # api_key = os.environ['TORN']
@@ -147,6 +147,3 @@ if args.name:
         prices_list = getprices(find_id(data, args.name))
         sort_and_present(prices_list)
     throw_an_error(21)
-
-if args.silent:
-    print("Shhhh")
