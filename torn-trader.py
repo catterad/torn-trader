@@ -8,7 +8,7 @@ import requests
 
 api_key = "qPOHTchsOjtNSYDD"
 
-wantedlist = {"Cannabis":7000, "Trout":17000, "Hockey Stick":3900, "Bottle of Beer":900, "Lollipop":400, "Xanax":800000}
+wantedlist = {"Cannabis":7000, "Trout":17000, "Hockey Stick":3900, "Bottle of Beer":900, "Lollipop":400, "Xanax":800000, "Bottle of Sake":3500}
 plushielist = {"Wolverine Plushie":9500, "Stingray Plushie":9000, "Jaguar Plushie":17000, "Nessie Plushie":39000, "Camel Plushie":86000, "Lion Plushie":66000, "Panda Plushie":66000, "Monkey Plushie":44000}
 flowerlist = {"Dahlia":2000, "Heather":40000,  "Banana Orchid":11000, "Orchid":19400, "Tribulus Omanense":74000, "Peony":69000, "Crocus":8000, "Edelweiss":39000, "Ceibo Flower":40000}
 
