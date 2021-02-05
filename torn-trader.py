@@ -8,10 +8,10 @@ import requests
 
 api_key = "qPOHTchsOjtNSYDD"
 
-wantedlist = {"Cannabis":7000, "Trout":17000, "Hockey Stick":3900, "Bottle of Beer":900, "Lollipop":400, "Xanax":800000, "Bottle of Sake":3500}
-plushielist = {"Wolverine Plushie":9500, "Stingray Plushie":9000, "Jaguar Plushie":17000, "Nessie Plushie":39000, "Camel Plushie":86000, "Lion Plushie":66000, "Panda Plushie":66000, "Monkey Plushie":44000}
-flowerlist = {"Dahlia":2000, "Heather":40000,  "Banana Orchid":11000, "Orchid":19400, "Tribulus Omanense":74000, "Peony":69000, "Crocus":8000, "Edelweiss":39000, "Ceibo Flower":40000}
-
+wantedlist = {"Cannabis":7000, "Trout":15800, "Hockey Stick":3000, "Bottle of Beer":900, "Xanax":800000, "Bottle of Saké":3000}
+plushielist = {"Wolverine Plushie":9500, "Stingray Plushie":9000, "Jaguar Plushie":16000, "Nessie Plushie":39000, "Camel Plushie":86000, "Lion Plushie":66000, "Panda Plushie":66000, "Monkey Plushie":44000}
+flowerlist = {"Dahlia":2000, "Heather":40000,  "Banana Orchid":10000, "Orchid":19400, "Tribulus Omanense":74000, "Peony":69000, "Crocus":8000, "Edelweiss":30000, "Ceibo Flower":40000}
+candylist = {"Lollipop":400, "Bag of Bon Bons":500, "Bag of Candy Kisses":29000, "Bag of Tootsie Rolls":49000, "Jawbreaker":270000, "Bag of Sherbet":270000, "Bag of Humbugs":290000}
 
 # api_key = os.environ['TORN']
 
@@ -137,6 +137,13 @@ for item in flowerlist:
     prices_list = getprices(find_id(data, item))
     for price in prices_list:
         if(int(price) <= flowerlist[item]):
+            print("Buy " + str(item) + " " + str(price))
+for item in candylist:
+    if not args.silent:
+        print(item)
+    prices_list = getprices(find_id(data, item))
+    for price in prices_list:
+        if(int(price) <= candylist[item]):
             print("Buy " + str(item) + " " + str(price))
 
 if args.name:
