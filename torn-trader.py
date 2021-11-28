@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/python3.6
 
 import argparse
 import os.path
@@ -6,7 +6,7 @@ from ast import literal_eval
 
 import requests
 
-api_key = "qPOHTchsOjtNSYDD"
+api_key = ""
 
 wantedlist = {"Cannabis":7000, "Trout":15800, "Hockey Stick":3000, "Bottle of Beer":900, "Xanax":800000, "Bottle of Saké":3000}
 plushielist = {"Wolverine Plushie":9500, "Stingray Plushie":9000, "Jaguar Plushie":16000, "Nessie Plushie":39000, "Camel Plushie":86000, "Lion Plushie":66000, "Panda Plushie":66000, "Monkey Plushie":44000}
@@ -113,8 +113,11 @@ def market_api_call(item):
 parser = argparse.ArgumentParser(description="Torn-trader v1 by Catterad")
 parser.add_argument("--name", help="Name of the item")
 parser.add_argument("--silent", help="Only print possible buys", action='store_true', default='False')
+parser.add_argument("--key", help="Torn API Key", required=True)
 
 args = parser.parse_args()
+
+api_key = args.key
 
 data = itemload()
 for item in wantedlist:
